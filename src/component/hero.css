@@ -1,0 +1,29 @@
+.navbar {
+    position: fixed;
+    width: 100%;
+    height: 8vh;
+}
+
+.navbar h2 {
+    font-weight: 400;
+}
+
+.main {
+    position: relative;
+    top: 8vh;
+    height: 92vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.main h2 {
+    font-size: 4em;
+    font-weight: 400;
+}
+
+.main h3 {
+    font-size: 2em;
+    font-weight: 100;
+}
