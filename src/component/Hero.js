@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react'
 import './hero.css'
 import { makeStyles } from '@material-ui/core/styles'
 import { Popover, CircularProgress } from '@material-ui/core'
+import Colors from '../colors.json'
 
 const useStyles = makeStyles((theme) => ({
   typography: {
@@ -22,19 +23,12 @@ function Hero() {
 
 	useEffect(() => {
 		setLoading(true)
-		fetch('http://www.colr.org/json/colors/random/50', {
-			method: 'GET'
-		})
-		.then(response => response.json())
-		.then(colors => {
-			if (colors) {
-				setLoading(false)
-				const filteredColors = colors.matching_colors.filter(c => c!== "")
-				setColors(filteredColors)
-				setStack(filteredColors.slice(0, 10))
-			}
-		})
-		.catch(err => console.log(err))
+		if (Colors.length > 0) {
+			setLoading(false)
+			const filteredColors = Colors.filter(c => c!== "")
+			setColors(filteredColors)
+			setStack(filteredColors.slice(0, 10))
+		}
 	}, [])
 
 	const loadColors=()=>{
